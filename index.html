@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>UniCube</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <article class="viewport">
+        <section id="cube1" class="unicube"></section>
+    </article>
+
+    <script src="UniCube.js"></script>
+    <script type="text/javascript">
+        let htmlCube = document.getElementById("cube1");
+        let cube = new UniCube(htmlCube, [
+            "<center>NEIN</center>",
+            ["<div class='opaque2'>2 Gestern</div>", "<div class='opaque2'>1 Vielleicht</div>", "<div class='opaque2'>2 Montag</div>"],
+            ["<div class='opaque3'>3 Und nicht Morgen</div>", "<div class='opaque3'>3 Aber nicht Heute</div>", "<div class='opaque3'>3Morgen</div>"],
+            ["<div class='opaque4'>4 Uuup's</div>", "<div class='opaque4'>4 Morgen Sicher</div>", "<div class='opaque4'>4Nein</div>"],
+            ["<div class='opaque5'>5 Rrrrrr</div>", "<div class='opaque5'>Leider Nicht</div>", "<div class='opaque5'>5 Gestern</div>"]
+        ]);
+
+        cube.appendValue(["<div class='opaque6'>6 Dich</div>", "<div class='opaque6'>6 I love You</div>", "<div class='opaque6'>Aber nicht dich</div>"]);
+
+        let element = document.createElement("div");
+        element.innerHTML = "  JA  ";
+        cube.appendValue(element);
+
+        cube.onFlipEnd(function(direction, side) {
+            console.log(direction, side);
+        });
+
+        /*
+            If you want to see something cool, 
+            set .unicube > div height/width to
+            400px instead of 360 :)
+        */
+    </script>
+</body>
+</html>
